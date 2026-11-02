@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Examination System</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar"><div class="brand">Exam<span>Portal</span></div><div id="nav-user"></div></header>
+  <main class="container">
+    <section id="auth-view" class="auth-grid">
+      <div class="hero"><p class="eyebrow">LEARN · PRACTISE · SUCCEED</p><h1>Your next result starts here.</h1><p>Take online tests, track your performance and improve with every attempt.</p></div>
+      <div class="panel">
+        <div class="tabs"><button class="tab active" data-tab="login">Login</button><button class="tab" data-tab="register">Register</button></div>
+        <form id="login-form"><h2>Welcome back</h2><label>Email<input name="email" type="email" required placeholder="you@example.com"></label><label>Password<input name="password" type="password" required placeholder="Your password"></label><button class="primary">Login</button></form>
+        <form id="register-form" class="hidden"><h2>Create student account</h2><label>Full name<input name="name" required></label><label>Email<input name="email" type="email" required></label><label>Password<input name="password" type="password" minlength="6" required></label><button class="primary">Create account</button></form>
+        <p id="auth-message" class="message"></p>
+        <p class="hint">Demo admin: admin@example.com / Admin@123</p>
+      </div>
+    </section>
+    <section id="student-view" class="hidden">
+      <div class="page-heading"><div><p class="eyebrow">STUDENT DASHBOARD</p><h1>Available examinations</h1><p>Choose a test and submit your answers before the timer ends.</p></div></div>
+      <div id="exam-list" class="cards"></div>
+      <h2 class="section-title">My recent results</h2><div id="my-results"></div>
+    </section>
+    <section id="exam-view" class="hidden">
+      <div class="exam-head"><div><p class="eyebrow">EXAM IN PROGRESS</p><h1 id="exam-title"></h1><p id="exam-description"></p></div><div class="timer" id="timer">00:00</div></div>
+      <form id="exam-form"><div id="question-list"></div><button class="primary submit-btn">Submit examination</button></form>
+    </section>
+    <section id="result-view" class="hidden">
+      <div class="result-panel"><p class="eyebrow">EXAMINATION COMPLETED</p><h1>Your result</h1><div class="score" id="score-value"></div><p id="score-detail"></p><button class="primary" id="back-dashboard">Back to dashboard</button></div>
+    </section>
+    <section id="admin-view" class="hidden">
+      <div class="page-heading"><div><p class="eyebrow">ADMINISTRATION</p><h1>Manage examinations</h1><p>Create tests and review student submissions.</p></div></div>
+      <div class="admin-grid">
+        <div class="panel"><h2>Create an exam</h2><form id="create-exam-form">
+          <label>Exam title<input name="title" required></label><label>Description<textarea name="description" rows="2"></textarea></label><label>Duration (minutes)<input name="duration" type="number" min="1" value="30" required></label>
+          <div id="question-editor"></div><button type="button" class="secondary" id="add-question">+ Add question</button><button class="primary">Publish exam</button>
+        </form></div>
+        <div class="panel"><h2>Published exams</h2><div id="admin-exams"></div><h2 class="section-title">Student results</h2><div id="admin-results"></div></div>
+      </div>
+    </section>
+  </main>
+  <div id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body></html>
